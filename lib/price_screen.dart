@@ -59,17 +59,10 @@ class _PriceScreenState extends State<PriceScreen> {
 
   String bitcoinValue = '?';
 
-  //6. We need to keep track of when getData() starts.
-  bool isWaiting = false;
-
   void getData() async {
-    //6. As soon as getData() is called we started waiting for the result.
-    isWaiting = true;
     try {
       //We're now passing the selectedCurrency when we call getCoinData().
       var data = await CoinData().getCoinData(selectedCurrency);
-      //6. Because we're awaiting for the data, as soon as this line triggers, we should now have the result back and can set isWaiting to false again.
-      isWaiting = false;
       setState(() {
         bitcoinValue = data;
       });
