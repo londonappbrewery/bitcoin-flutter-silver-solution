@@ -67,12 +67,11 @@ class _PriceScreenState extends State<PriceScreen> {
     isWaiting = true;
     try {
       //We're now passing the selectedCurrency when we call getCoinData().
-      double data = await CoinData().getCoinData(selectedCurrency);
+      var data = await CoinData().getCoinData(selectedCurrency);
       //6. Because we're awaiting for the data, as soon as this line triggers, we should now have the result back and can set isWaiting to false again.
       isWaiting = false;
       setState(() {
-        //7: For bonus points, use the ternary operator to display a '?' while we're waiting for the result to come back.
-        bitcoinValue = isWaiting ? '?' : data.toStringAsFixed(0);
+        bitcoinValue = data;
       });
     } catch (e) {
       print(e);
