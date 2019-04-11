@@ -33,7 +33,7 @@ const List<String> cryptoList = [
 ];
 
 const bitcoinAverageURL =
-    'https://apiv2.bitcoinaverage.com/indices/glosdfbal/ticker';
+    'https://apiv2.bitcoinaverage.com/indices/global/ticker';
 
 class CoinData {
   //3: Update getCoinData to take the selectedCurrency as an input.
