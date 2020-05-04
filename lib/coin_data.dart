@@ -37,7 +37,7 @@ const coinAPIURL = 'https://rest.coinapi.io/v1/exchangerate';
 const apiKey = 'YOUR-API-KEY-HERE';
 
 class CoinData {
-  //3. Create the Asynchronous method getCoinData() that returns a Future (the price data).
+  //3: Update getCoinData to take the selectedCurrency as an input.
   Future getCoinData(String selectedCurrency) async {
     //4. Create a url combining the coinAPIURL with the currencies we're interested, BTC to USD.
     String requestURL = '$coinAPIURL/BTC/$selectedCurrency?apikey=$apiKey';
@@ -51,7 +51,7 @@ class CoinData {
       //8. Get the last price of bitcoin with the key 'last'.
       var lastPrice = decodedData['rate'];
       //9. Output the lastPrice from the method.
-      return lastPrice;
+      return lastPrice.toStringAsFixed(0);
     } else {
       //10. Handle any errors that occur during the request.
       print(response.statusCode);
